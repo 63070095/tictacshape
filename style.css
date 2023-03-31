@@ -21,7 +21,7 @@ a {
 
 header {
     background-color: #FFF;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 9999;
@@ -64,7 +64,7 @@ main {
 }
 
 .choose-buttons button {
-    width: 100%;
+    width: 50%;
     height: 200px;
     font-size: 24px;
     font-weight: 600;
@@ -81,10 +81,53 @@ footer {
     background-color: #FFF;
     padding: 20px 0;
     margin-top: 50px;
-    box-shadow: 0 -1px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2);
 }
 
 footer p {
     text-align: center;
     font-size: 16px;
 }
+
+
+
+.choose-heading img {
+    display: block;
+    margin: 0 auto 50px;
+    max-width: 100%;
+    height: auto;
+}
+
+.choose-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choose-buttons button {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 12px;
+}
+
+.choose-heading img,
+.choose-buttons button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.button-container button {
+    margin-bottom: 10px;
+}
+
+

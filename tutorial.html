@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Tic Tac Shape Game - Tutorial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,32 +39,31 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="row justify-content-center align-items-center vh-100">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card profile-card">
-                    <div class="card-header profile-header">
-                        <h1 class="mb-0">User Profile</h1>
-                        <img src="images/profile.png" alt="Profile Picture">
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item"><i class="fas fa-user"></i> Username: John</li>
-                            <li class="list-group-item"><i class="fas fa-envelope"></i> Email: jj@example.com</li>
-                            <li class="list-group-item"><i ></i> Number of win : </li>
-                            <li class="list-group-item"><i ></i> Play Time : </li>
-                        </ul>
-                    </div>
-                    <div class="card-footer profile-footer">
-                        <button class="btn btn-primary btn-block">Delete Account</button>
-                        <p><a href="login.html">Logout</a></p>
-                    </div>
-                </div>
-            </div>
+    <main>
+        <div class="tutorial-container">
+            <h1>Tutorial</h1>
+            <p>Welcome to Tic Tac Shape! This is a game that's similar to Tic Tac Toe, but with a twist - instead of
+                X's and O's, you'll be playing with shapes! Here's how to play:</p>
+            <ol>
+                <li>Choose who you want to play with - you can play with a friend, or against the computer.</li>
+                <li>Choose your shape - you can choose from squares, circles, and triangles.</li>
+                <li>Start playing! The game board is a 3x3 grid, and you and your opponent will take turns placing your
+                    shapes on the board. The goal is to get three of your shapes in a row - horizontally, vertically, or
+                    diagonally.</li>
+                <li>If you're playing against the computer, you can choose the difficulty level - easy, medium, or hard.
+                    Good luck!</li>
+            </ol>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <p>&copy; Tic Tac Shape</p>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

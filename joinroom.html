@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Shape Game</title>
+    <title>Join Room</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="createroom_1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -40,22 +40,43 @@
     </header>
 
     <main>
-        <div class="choose-container">
-            <div class="choose-heading">
-                <h1>Tic Tac Shape</h1>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Square%2C_Inc_-_Square_Logo.jpg/1200px-Square%2C_Inc_-_Square_Logo.jpg"
-                    alt="Your Image Description" style="width: 15%; height: 15%;">
-                <div class="button-container d-flex flex-column align-items-center">
-                    <button class="btn btn-dark" style="margin-top: 5px;">PLAY</button>
-                    <button class="btn btn-dark" style="margin-top: 5px;">TUTORIAL</button>
-                    <button class="btn btn-dark" style="margin-top: 5px;">SCOREBOARD</button>
+        <div class="container">
+            <h1 class="text-center my-5">Join Room</h1>
 
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="form-group mb-3">
+                            <label for="room-code">Enter room code:</label>
+                            <input type="text" class="form-control" id="room-code" name="room-code" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Join Room</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <h2>Available Rooms:</h2>
+                    <ul class="list-group" id="available-rooms-list">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Room 123
+                            <button class="btn btn-primary join-btn">Join</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Room 456
+                            <button class="btn btn-primary join-btn">Join</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Room 789
+                            <button class="btn btn-primary join-btn">Join</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
         </div>
     </main>
-
 
     <footer>
         <div class="container-fluid">
@@ -63,8 +84,8 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
 </body>
 
 </html>
