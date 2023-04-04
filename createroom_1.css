@@ -64,7 +64,7 @@ main {
 }
 
 .choose-buttons button {
-    width: 100%;
+    width: 50%;
     height: 200px;
     font-size: 24px;
     font-weight: 600;

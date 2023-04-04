@@ -92,11 +92,10 @@ footer p {
 
 
 .choose-heading img {
-    display: block;
-    margin: 0 auto 50px;
-    max-width: 100%;
+    max-width: 200px;
     height: auto;
 }
+
 
 .choose-heading {
     display: flex;
@@ -130,4 +129,6 @@ button {
     margin-bottom: 10px;
 }
 
+
+  
 
