@@ -2,7 +2,7 @@ const cells = document.querySelectorAll('.cell');
 const turnText = document.getElementById('turn');
 const resetButton = document.getElementById('reset');
 const board = [];
-const size = 10;
+const size = 7;
 let turn = 'X';
 
 // Initialize board array with empty strings
