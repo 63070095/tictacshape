@@ -3,7 +3,7 @@ const turnText = document.getElementById('turn');
 const resetButton = document.getElementById('reset');
 const board = [];
 const size = 5;
-let turn = 'X';
+let turn = '1'; // set initial turn to player 1
 let xChesses = ['X', 'XX'];
 let oChesses = ['O', 'OO'];
 let xChess = getRandomChess(xChesses);
@@ -17,7 +17,7 @@ function initialize() {
     }
 
     // Update turn text and chess display
-    turnText.textContent = `It's ${turn}'s turn`;
+    turnText.textContent = `It's player ${turn}'s turn`;
     updateChessDisplay();
 
     // Add click event listener to each cell
@@ -33,11 +33,11 @@ function initialize() {
 
             // Update board and cell text
             board[row][col] = turn;
-            cell.textContent = turn === 'X' ? xChess : oChess;
+            cell.textContent = turn === '1' ? xChess : oChess;
 
             // Check for win
             if (checkWin()) {
-                turnText.textContent = `${turn} wins!`;
+                turnText.textContent = `Player ${turn} wins!`;
                 disableCells();
                 return;
             }
@@ -50,8 +50,8 @@ function initialize() {
             }
 
             // Switch turns
-            turn = turn === 'X' ? 'O' : 'X';
-            turnText.textContent = `It's ${turn}'s turn`;
+            turn = turn === '1' ? '2' : '1';
+            turnText.textContent = `It's player ${turn}'s turn`;
 
             // Update chess display
             updateChessDisplay();
@@ -61,12 +61,12 @@ function initialize() {
 
 // Update chess display
 function updateChessDisplay() {
-    if (turn === 'X') {
+    if (turn === '1') {
         xChess = getRandomChess(xChesses);
-        document.getElementById('chess').textContent = `Your chess is: ${xChess}`;
+        document.getElementById('chess').textContent = `Player 1's chess is: ${xChess}`;
     } else {
         oChess = getRandomChess(oChesses);
-        document.getElementById('chess').textContent = `Your chess is: ${oChess}`;
+        document.getElementById('chess').textContent = `Player 2's chess is: ${oChess}`;
     }
 }
 
@@ -91,8 +91,8 @@ resetButton.addEventListener('click', () => {
     oChess = getRandomChess(['O', 'OO']);
 
     // Reset turn and turn text
-    turn = 'X';
-    turnText.textContent = `It's ${turn}'s turn`;
+    turn = '1';
+    turnText.textContent = `It's player ${turn}'s turn`;
 
     // Update chess display
     updateChessDisplay();
