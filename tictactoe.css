@@ -18,13 +18,8 @@ header {
     background-color: #0C0C0C;
 }
 
-
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px auto;
-    max-width: 90vw;
+.container {
+    margin-top: 50px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -50,19 +45,25 @@ td {
     font-size: 36px;
     border: 2px solid #0C0C0C;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 td:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+
+/*หมาก x*/
 td.x {
-    color: #f00;
+    
 }
 
+/*หมวก o*/
 td.o {
-    color: #0f0;
+   
 }
+
 
 #turn {
     margin-bottom: 20px;

@@ -2,48 +2,78 @@ const cells = document.querySelectorAll('.cell');
 const turnText = document.getElementById('turn');
 const resetButton = document.getElementById('reset');
 const board = [];
-const size = 7;
+const size = 5;
 let turn = 'X';
+let xChesses = ['X', 'XX'];
+let oChesses = ['O', 'OO'];
+let xChess = getRandomChess(xChesses);
+let oChess = getRandomChess(oChesses);
 
-// Initialize board array with empty strings
-for (let i = 0; i < size; i++) {
-    board.push(Array(size).fill(''));
+// Initialize game
+function initialize() {
+    // Initialize board array with empty strings
+    for (let i = 0; i < size; i++) {
+        board.push(Array(size).fill(''));
+    }
+
+    // Update turn text and chess display
+    turnText.textContent = `It's ${turn}'s turn`;
+    updateChessDisplay();
+
+    // Add click event listener to each cell
+    cells.forEach((cell) => {
+        cell.addEventListener('click', () => {
+            const row = cell.parentNode.rowIndex;
+            const col = cell.cellIndex;
+
+            // If cell is already filled, return
+            if (board[row][col] !== '') {
+                return;
+            }
+
+            // Update board and cell text
+            board[row][col] = turn;
+            cell.textContent = turn === 'X' ? xChess : oChess;
+
+            // Check for win
+            if (checkWin()) {
+                turnText.textContent = `${turn} wins!`;
+                disableCells();
+                return;
+            }
+
+            // Check for tie
+            if (checkTie()) {
+                turnText.textContent = "It's a tie!";
+                disableCells();
+                return;
+            }
+
+            // Switch turns
+            turn = turn === 'X' ? 'O' : 'X';
+            turnText.textContent = `It's ${turn}'s turn`;
+
+            // Update chess display
+            updateChessDisplay();
+        });
+    });
 }
 
-// Add click event listener to each cell
-cells.forEach((cell) => {
-    cell.addEventListener('click', () => {
-        const row = cell.parentNode.rowIndex;
-        const col = cell.cellIndex;
+// Update chess display
+function updateChessDisplay() {
+    if (turn === 'X') {
+        xChess = getRandomChess(xChesses);
+        document.getElementById('chess').textContent = `Your chess is: ${xChess}`;
+    } else {
+        oChess = getRandomChess(oChesses);
+        document.getElementById('chess').textContent = `Your chess is: ${oChess}`;
+    }
+}
 
-        // If cell is already filled, return
-        if (board[row][col] !== '') {
-            return;
-        }
-
-        // Update board and cell text
-        board[row][col] = turn;
-        cell.textContent = turn;
-
-        // Check for win
-        if (checkWin()) {
-            turnText.textContent = `${turn} wins!`;
-            disableCells();
-            return;
-        }
-
-        // Check for tie
-        if (checkTie()) {
-            turnText.textContent = "It's a tie!";
-            disableCells();
-            return;
-        }
-
-        // Switch turns
-        turn = turn === 'X' ? 'O' : 'X';
-        turnText.textContent = `It's ${turn}'s turn`;
-    });
-});
+// Get a random chess from the given array of chesses
+function getRandomChess(chesses) {
+    return chesses[Math.floor(Math.random() * chesses.length)];
+}
 
 // Add click event listener to reset button
 resetButton.addEventListener('click', () => {
@@ -52,15 +82,22 @@ resetButton.addEventListener('click', () => {
         for (let j = 0; j < size; j++) {
             board[i][j] = '';
             cells[i * size + j].textContent = '';
-            cells[i * size + j].classList.remove('x', 'o');
             cells[i * size + j].removeAttribute('disabled');
         }
     }
 
+    // Randomly select chess for players
+    xChess = getRandomChess(['X', 'XX']);
+    oChess = getRandomChess(['O', 'OO']);
+
     // Reset turn and turn text
     turn = 'X';
     turnText.textContent = `It's ${turn}'s turn`;
+
+    // Update chess display
+    updateChessDisplay();
 });
+
 
 // Check for win
 function checkWin() {
@@ -93,22 +130,43 @@ function disableCells() {
 
 // Highlight winning cells
 function highlightWin(index, type, forward) {
+    const winClass = forward ? 'x' : 'o';
+    const winChess = forward ? 'X' : 'O';
+    const winChess2 = forward ? 'XX' : 'OO';
+
     if (type === 'row') {
         for (let i = 0; i < size; i++) {
             const cell = cells[index * size + i];
-            cell.classList.add(forward ? 'x' : 'o');
+            cell.classList.add(winClass);
+            if (board[index][i] === winChess2) {
+                cell.textContent = winChess2;
+            } else {
+                cell.textContent = winChess;
+            }
         }
     } else if (type === 'diagonal') {
         if (forward) {
             for (let i = 0; i < size; i++) {
                 const cell = cells[i * size + i];
-                cell.classList.add('x');
+                cell.classList.add(winClass);
+                if (board[i][i] === winChess2) {
+                    cell.textContent = winChess2;
+                } else {
+                    cell.textContent = winChess;
+                }
             }
         } else {
             for (let i = 0; i < size; i++) {
                 const cell = cells[i * size + (size - i - 1)];
-                cell.classList.add('o');
+                cell.classList.add(winClass);
+                if (board[i][size - i - 1] === winChess2) {
+                    cell.textContent = winChess2;
+                } else {
+                    cell.textContent = winChess;
+                }
             }
         }
     }
 }
+
+initialize();

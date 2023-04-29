@@ -5,86 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="tictactoe.css">
 </head>
 
 <body>
-    
-
-    <main>
-        <div class="game-container">
-            <h1>Tic Tac Toe</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p id="turn">It's X's turn</p>
-            <button id="reset">Reset</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-1">
+                <h1 class="text-center mb-4">Tic Tac Toe</h1>
+                <table class="mx-auto">
+                    <tbody>
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <p id="turn" class="text-center mb-4">It's X's turn</p>
+                <h3 class="text-center" id="chess">Your chess is: </h3>
+                <button id="reset" class="btn btn-block btn-primary">Reset</button>
+            </div>
         </div>
-    </main>
+    </div>
 
     <!--<footer>
         <div class="footer-container">
