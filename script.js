@@ -86,8 +86,8 @@ resetButton.addEventListener('click', () => {
     }
 
     // Randomly select chess for players
-    xChess = getRandomChess(['X', 'XX']);
-    oChess = getRandomChess(['O', 'OO']);
+    xChess = getRandomChess(['X', 'Y']);
+    oChess = getRandomChess(['O', 'Z']);
 
     // Reset turn and turn text
     turn = '1';
@@ -131,7 +131,7 @@ function disableCells() {
 function highlightWin(index, type, forward) {
     const winClass = forward ? 'x' : 'o';
     const winChess = forward ? 'X' : 'O';
-    const winChess2 = forward ? 'XX' : 'OO';
+    const winChess2 = forward ? 'Y' : 'Z';
 
     if (type === 'row') {
         for (let i = 0; i < size; i++) {
