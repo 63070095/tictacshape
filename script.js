@@ -4,8 +4,8 @@ const resetButton = document.getElementById('reset');
 const board = [];
 const size = 5;
 let turn = '1'; // set initial turn to player 1
-let xChesses = ['X', 'XX'];
-let oChesses = ['O', 'OO'];
+let xChesses = ['X', 'Y'];
+let oChesses = ['O', 'Z'];
 let xChess = getRandomChess(xChesses);
 let oChess = getRandomChess(oChesses);
 
@@ -69,7 +69,6 @@ function updateChessDisplay() {
         document.getElementById('chess').textContent = `Player 2's chess is: ${oChess}`;
     }
 }
-
 // Get a random chess from the given array of chesses
 function getRandomChess(chesses) {
     return chesses[Math.floor(Math.random() * chesses.length)];
