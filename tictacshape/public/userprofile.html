@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>User Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
@@ -15,6 +15,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -27,20 +30,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                    
-                        <div id="main-content logged-out">
-      
-                        </div>
-                        <button type="button" id="btnLogout" class="btn btn-outline-light logged-in" style="color:black">
+                        <button type="button" id="btnLogout" class="btn btn-outline-light logged-in" onclick="logout()" style="color:black">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </button> 
-                    </ul>
+                    
                 
             </div>
         </nav>
     </header>
-    
-    <div class="container logged-out">
+
+    <div class="container">
+        <div class="userProfile">
+        <img src="https://media.discordapp.net/attachments/1036292452883107891/1101933539244650616/cute-samoyed-dog-icon_42750-298.jpg?width=612&height=612" alt="">
+    </div>
+    <div id="user_profile">
+        
+        </div>
+    </div>
+    <!-- <div class="container logged-out">
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card login-card">
@@ -64,14 +71,13 @@
                         </div>
                         </form>
                     </div>
-                    
                     <div class="card-footer login-footer">
                         <p>Don't have an account? <a href="signup.html">Register here</a></p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyAr4NpbexrEYTLSqVr9d4zoM0FKXxKq8LM",
@@ -85,8 +91,8 @@
         };
         firebase.initializeApp(firebaseConfig)
         </script>
-        <script type="text/javascript" src="authlogin.js"></script>
-        <script type="text/javascript" src="read_data.js"></script>
+        <!-- <script type="text/javascript" src="authlogin.js"></script> -->
+        <script type="text/javascript" src="read_profie.js"></script>
         
 </body>
 </html>

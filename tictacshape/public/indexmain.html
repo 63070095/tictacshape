@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Shape Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="userprofile.html">
+                                <img src="https://media.discordapp.net/attachments/1092814367990485072/1092826993394974730/vecteezy_doodle-colored-star-happy-character-icon-isolated-on-white_8024454_Converted.png?width=691&height=662" alt="Tic Tac Shape Logo" style="width: 20px;">
+                            </a>
+                        </li>
+                        <li class="nav-item" id="user_name">
+                            
+                        </li>
+                        <li class="nav-item">
+                            
+                            <!-- <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                  </svg>
+                                  <button type="button" id="btnLogout" class="btn btn-outline-light logged-in" style="color:black">
+                                    <i class="bi bi-box-arrow-right"></i> Logout
+                                </button> 
+                            </a> -->
+                            <button type="button" id="btnLogout" onclick="logout()" class="btn btn-outline-light logged-in" style="color:black">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </button> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="choose-container">
+            <div class="choose-heading">
+                <img src="https://cdn.discordapp.com/attachments/1092814367990485072/1092823806244040736/TicTacShape_Logo_ver2.png"
+                    alt="Your Image Description" class="img-fluid" style="width: 30%; height: 30%;">
+                <div class="button-container d-flex flex-column align-items-center">
+                    <button class="btn btn-primary" style="margin-top: 5px;">PLAY</button>
+                    <button class="btn btn-primary" style="margin-top: 5px;">TUTORIAL</button>
+                    <button class="btn btn-primary" style="margin-top: 5px;">SCOREBOARD</button>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="container-fluid">
+            <p>&copy; Tic Tac Shape</p>
+        </div>
+    </footer>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAr4NpbexrEYTLSqVr9d4zoM0FKXxKq8LM",
+            authDomain: "tictacshape.firebaseapp.com",
+            databaseURL: "https://tictacshape-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tictacshape",
+            storageBucket: "tictacshape.appspot.com",
+            messagingSenderId: "437728706331",
+            appId: "1:437728706331:web:e78e5a4ae49076ab2fddbe",
+            measurementId: "G-P4P1BVBNED"
+        };
+        firebase.initializeApp(firebaseConfig)
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="testread.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>

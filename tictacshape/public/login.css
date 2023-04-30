@@ -1,0 +1,21 @@
+.userProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.userProfile img{
+    width: 20%;
+    border-radius: 50%;
+}
+
+#user_profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}

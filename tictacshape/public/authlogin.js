@@ -17,7 +17,7 @@ function loginUser(event){
             loginForm.reset();
             loginFeedback.innerHTML = "";
         }, 1000)
-        //window.location = "index.html";
+        window.location = "indexmain.html";
     })
     .catch((error) => {
         loginFeedback.style = "color: crimson";
@@ -31,41 +31,17 @@ function loginUser(event){
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         console.log("User :", user);
-        
+        getList(user);
     } 
     setTimeout(() =>{
-        setupUI(user)
-        readData(user)
+        setupUI(user);
     }, 500)
     
   });
-
-const logoutItems = document.querySelectorAll(".logged-out");
-const loginItems = document.querySelectorAll(".logged-in");
-  
-let setupUI = (user) => {
-    if (user) {
-        document.querySelector('#user_profile').innerHTML = user.email;
-        loginItems.forEach((item) => (item.style.display = "block"));
-        logoutItems.forEach((item) => (item.style.display = "none"));
-    } else {
-        loginItems.forEach((item) => (item.style.display = "none"));
-        logoutItems.forEach((item) => (item.style.display = "block"));
-    }
-}
 
 const btnLogout = document.querySelector("#btnLogout");
 btnLogout.addEventListener("click", function() {
     firebase.auth().signOut();
     console.log("Logout completed.");
+    window.location = "login.html";
 })
-
-var ref = firebase.database().ref("Userstatus");
-let readData = (snapshot) => {
-        snapshot.forEach((data) => {
-            console.log(data.key)
-            var score = data.val().Uscore;
-            var username = data.val().username;
-            document.querySelector('#user_profile').innerHTML = `${username} (${score})`;
-            
-});}
